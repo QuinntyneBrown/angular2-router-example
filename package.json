@@ -1,0 +1,29 @@
+{
+  "name": "angular2-router-example",
+  "version": "0.1.0",
+  "description": "An Angular 2 example app using the component router",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "~9.0.8",
+    "babelify": "~6.0.2",
+    "vinyl-transform": "~1.0.0",
+    "vinyl-source-stream": "~1.1.0",
+    "gulp-concat": "~2.5.2",
+    "gulp": "^3.9.0",
+    "gulp-connect": "~2.2.0",
+    "vinyl-buffer": "~1.0.0",
+    "gulp-sourcemaps": "~1.5.2",
+    "stringify": "~3.1.0"
+  },
+  "scripts": {
+    "postinstall": "",
+    "prestart": "npm install"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.37",
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.1.4",
+    "reflect-metadata": "~0.1.0",
+    "zone.js": "~0.5.2"
+  }
+}

@@ -1,0 +1,9 @@
+ <form #f="form" (submit)='login(f.value)' *ng-if="!Auth.check()">
+   <div ng-control-group='credentials' #credentials="form">
+     Username <input type='text' ng-control='username'>
+     Password <input type='password' ng-control='password'>
+   </div>
+   <div *ng-if="invalid">Credentials are invalid</div>
+   <button type='submit'>Login</button>
+ </form>
+ <div *ng-if="Auth.check()">You are logged in!</div>
