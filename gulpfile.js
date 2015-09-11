@@ -36,7 +36,8 @@ gulp.task('bundle', ['style'], function() {
 gulp.task('style', function() {
     return gulp.src([
             'app/assets/**',
-            'node_modules/bootstrap/dist/css/**'
+            'node_modules/bootstrap/dist/css/**',
+            'views/index.html'
           ])
         .pipe(gulp.dest('./dist/'));
 });
