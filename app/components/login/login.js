@@ -1,6 +1,6 @@
 import {Component, View, FormBuilder} from 'angular2/angular2';
-import {FORM_DIRECTIVES} from 'angular2/forms';
-import {NgIf} from 'angular2/directives';
+import {FORM_DIRECTIVES} from 'angular2/angular2';
+import {NgIf} from 'angular2/angular2';
 import template from './login.html';
 import {Auth, default as authBindings} from '../../services/auth/auth';
 

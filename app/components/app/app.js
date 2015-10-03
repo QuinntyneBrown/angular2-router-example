@@ -18,12 +18,12 @@ import authBindings from '../../services/auth/auth';
   {
     path: '/',
     component: Home,
-    as: 'home'
+    as: 'Home'
   },
   {
     path: '/about',
     component: About,
-    as: 'about'
+    as: 'About'
   },
   {
     path: '/login',
@@ -33,12 +33,12 @@ import authBindings from '../../services/auth/auth';
         resolve(Login);
       })
     },
-    as: 'login'
+    as: 'Login'
   },
   {
     path: '/admin/...',
     component: Admin,
-    as: 'admin'
+    as: 'Admin'
   }
 ])
 export class App {}

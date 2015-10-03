@@ -14,7 +14,7 @@ import {Dashboard} from '../dashboard/dashboard';
   {
     path: '/dashboard',
     component: Dashboard,
-    as: 'dashboard'
+    as: 'Dashboard'
   }
 ])
 @CanActivate(() => {
