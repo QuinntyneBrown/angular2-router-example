@@ -9,7 +9,13 @@ export class Auth {
 	}
 
 	check() {
-		return loggedIn;
+		return new Promise((resolve, reject) => {
+			if (loggedIn) {
+				return resolve(true);
+			} else {
+				return reject(false);
+			}
+		});
 	}
 }
 

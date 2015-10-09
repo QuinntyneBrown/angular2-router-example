@@ -15,7 +15,7 @@ function handleError(error) {
 }
 
 gulp.task('default', ['connect', 'bundle'], function() {
-  gulp.watch(['./app/**/*.js', './app/**/*.html'], ['bundle']);
+  gulp.watch(['./app/**/*.js', './app/**/*.html', './app/views/**'], ['bundle']);
 });
 
 gulp.task('bundle', ['style'], function() {

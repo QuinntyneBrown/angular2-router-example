@@ -16,9 +16,22 @@ export class Login {
   static parameters = [Auth]
   constructor(Auth) {
     this.Auth = Auth;
+    this.loggedIn = false;
+  }
+
+  onActivate() {
+    this.Auth.check()
+        .then((result) => {
+          this.loggedIn = result;
+        })
+        .catch((error) => {
+          this.loggedIn = false;
+        });
   }
 
   login(formModel) {
-    this.Auth.login(formModel.credentials.username, formModel.credentials.password);
+    this.Auth.login(formModel.credentials.username, formModel.credentials.password)
+            .then(() => this.loggedIn = true)
+            .catch(() => this.invalid = true);
   }
 }
