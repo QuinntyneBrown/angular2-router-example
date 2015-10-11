@@ -9,12 +9,8 @@ export class Auth {
 	}
 
 	check() {
-		return new Promise((resolve, reject) => {
-			if (loggedIn) {
-				return resolve(true);
-			} else {
-				return reject(false);
-			}
+		return new Promise((resolve) => {
+			resolve(loggedIn);
 		});
 	}
 }

@@ -8,9 +8,12 @@ export const isLoggedIn = () => {
 	let router = injector.get(Router);
 
   	return auth.check()
-  				.then((result) => result)
-  				.catch(() => {
-  					router.navigate(['/Login']);
-  					return false;
+  				.then((result) => {
+  					if (result) {
+  						return true;
+  					} else {
+  						router.navigate(['/Login']);
+  						return false;
+  					}
   				});
 };
