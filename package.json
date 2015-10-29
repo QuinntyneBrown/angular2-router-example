@@ -20,10 +20,8 @@
     "prestart": "npm install"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.42",
+    "angular2": "^2.0.0-alpha.45",
     "bootstrap": "^3.3.5",
-    "jquery": "^2.1.4",
-    "reflect-metadata": "~0.1.0",
-    "zone.js": "~0.5.2"
+    "jquery": "^2.1.4"
   }
 }
