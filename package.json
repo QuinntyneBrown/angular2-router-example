@@ -20,7 +20,7 @@
     "prestart": "npm install"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.45",
+    "angular2": "angular/angular#builds-js",
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.4"
   }
