@@ -4,16 +4,18 @@
   "description": "An Angular 2 example app using the component router",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "~9.0.8",
     "babelify": "~6.0.2",
-    "vinyl-transform": "~1.0.0",
-    "vinyl-source-stream": "~1.1.0",
-    "gulp-concat": "~2.5.2",
+    "browserify": "~9.0.8",
+    "connect-history-api-fallback": "^1.1.0",
     "gulp": "^3.9.0",
+    "gulp-concat": "~2.5.2",
     "gulp-connect": "~2.2.0",
-    "vinyl-buffer": "~1.0.0",
     "gulp-sourcemaps": "~1.5.2",
-    "stringify": "~3.1.0"
+    "stringify": "~3.1.0",
+    "vinyl-buffer": "~1.0.0",
+    "vinyl-source-stream": "~1.1.0",
+    "vinyl-transform": "~1.0.0",
+    "watchify": "^3.6.1"
   },
   "scripts": {
     "postinstall": "",
@@ -22,6 +24,9 @@
   "dependencies": {
     "angular2": "angular/angular#builds-js",
     "bootstrap": "^3.3.5",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-alpha.11",
+    "zone.js": "^0.5.8"
   }
 }

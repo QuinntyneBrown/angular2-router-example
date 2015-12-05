@@ -8,6 +8,8 @@ var connect = require('gulp-connect');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var stringify = require('stringify');
+var history = require('connect-history-api-fallback');
+var watchify = require('watchify');
 
 function handleError(error) {
   console.log("Error: " + error.message);
@@ -19,18 +21,32 @@ gulp.task('default', ['connect', 'bundle'], function() {
 });
 
 gulp.task('bundle', ['style'], function() {
-    browserify({ debug: true })
+    var b = browserify({
+        entries: ['./app/index.js'],
+        debug: true,
+        paths: [
+          'node_modules'
+        ],
+        cache: {},
+        packageCache: {}
+      })
       .transform(babelify.configure({stage: 0}))
-      .transform(stringify(['.html']))
-      .require('./app/index.js', { entry: true})
-      .bundle()
-      .on("error", handleError)
-      .pipe(source('bundle.js'))
-      .pipe(buffer())
-      .pipe(sourcemaps.init({loadMaps: true}))
-      .pipe(sourcemaps.write('./'))
-      .on("error", handleError)
-      .pipe(gulp.dest('./dist/'));
+      .transform(stringify(['.html']));
+
+      b = watchify(b);
+
+      function bundle() {
+        b.bundle()
+         .on("error", handleError)
+         .pipe(source('bundle.js'))
+         .pipe(buffer())
+         .pipe(sourcemaps.init({loadMaps: true}))
+         .pipe(sourcemaps.write('./'))
+         .on("error", handleError)
+         .pipe(gulp.dest('./dist/'));
+      }
+
+      return bundle();
 });
 
 gulp.task('style', function() {
@@ -45,6 +61,11 @@ gulp.task('style', function() {
 gulp.task('connect', function() {
   connect.server({
     root: 'dist',
-    port: 8080
+    port: 8080,
+    middleware: function(connect, opt) {
+      return [
+        history()
+      ]
+    }
   });
 });
