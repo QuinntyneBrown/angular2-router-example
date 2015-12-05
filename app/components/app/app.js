@@ -9,9 +9,7 @@ import {Loading} from '../loading/loading';
 import template from './app.html';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   template,
   directives: [ROUTER_DIRECTIVES, CORE_DIRECTIVES, Loading]
 })

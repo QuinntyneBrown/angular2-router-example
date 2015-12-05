@@ -5,9 +5,7 @@ import template from './login.html';
 import {Auth} from '../../services/auth/auth';
 
 @Component({
-  selector: 'login-form'
-})
-@View({
+  selector: 'login-form',
   directives: [FORM_DIRECTIVES, NgIf],
   template
 })

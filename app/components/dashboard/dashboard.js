@@ -3,13 +3,8 @@ import {CanActivate} from 'angular2/router';
 import template from './dashboard.html';
 
 @Component({
-	selector: 'dashboard'
-})
-@View({
+	selector: 'dashboard',
 	template
 })
 export class Dashboard {
-	constructor() {
-		
-	}
 }

@@ -6,9 +6,7 @@ import {NotFound} from '../notfound/notfound';
 import {isLoggedIn} from '../../helpers/is-logged-in';
 
 @Component({
-  selector: 'admin'
-})
-@View({
+  selector: 'admin',
   template,
   directives: [ROUTER_DIRECTIVES]
 })
@@ -26,6 +24,5 @@ import {isLoggedIn} from '../../helpers/is-logged-in';
 ])
 @CanActivate(() => isLoggedIn())
 export class Admin {
-  
-}
 
+}
