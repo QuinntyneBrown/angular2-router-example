@@ -17,22 +17,22 @@ import template from './app.html';
   {
     path: '/',
     component: Home,
-    as: 'Home'
+    name: 'Home'
   },
   {
     path: '/about',
     component: About,
-    as: 'About'
+    name: 'About'
   },
   {
     path: '/login',
     component: Login,
-    as: 'Login'
+    name: 'Login'
   },
   {
     path: '/admin/...',
     component: Admin,
-    as: 'Admin'
+    name: 'Admin'
   },
   {
     path: '/**',

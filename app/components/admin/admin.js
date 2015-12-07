@@ -14,12 +14,12 @@ import {isLoggedIn} from '../../helpers/is-logged-in';
   {
     path: '/dashboard',
     component: Dashboard,
-    as: 'Dashboard'
+    name: 'Dashboard'
   },
   {
     path: '/**',
     component: NotFound,
-    as: 'NotFound'
+    name: 'NotFound'
   }
 ])
 @CanActivate(() => isLoggedIn())
