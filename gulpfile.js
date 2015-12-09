@@ -16,7 +16,7 @@ function handleError(error) {
   this.emit('end');
 }
 
-gulp.task('default', ['connect', 'bundle'], function() {
+gulp.task('default', ['connect', 'data', 'bundle'], function() {
   gulp.watch(['./app/**/*.js', './app/**/*.html', './app/views/**'], ['bundle']);
 });
 
@@ -24,9 +24,6 @@ gulp.task('bundle', ['style'], function() {
     var b = browserify({
         entries: ['./app/index.js'],
         debug: true,
-        paths: [
-          'node_modules'
-        ],
         cache: {},
         packageCache: {}
       })
@@ -49,9 +46,16 @@ gulp.task('bundle', ['style'], function() {
       return bundle();
 });
 
+gulp.task('data', function() {
+    return gulp.src([
+            'data/**/*'
+          ])
+        .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('style', function() {
     return gulp.src([
-            'app/assets/**',
+            'assets/**/*',
             'node_modules/bootstrap/dist/css/**',
             'views/index.html'
           ])

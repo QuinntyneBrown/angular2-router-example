@@ -24,9 +24,11 @@
   "dependencies": {
     "angular2": "angular/angular#builds-js",
     "bootstrap": "^3.3.5",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.13",
     "jquery": "^2.1.4",
     "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-alpha.11",
+    "rxjs": "^5.0.0-alpha.13",
     "zone.js": "^0.5.8"
   }
 }

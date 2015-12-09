@@ -30,6 +30,8 @@ export class Login {
     this.invalid = false;
     this.Auth.login(formModel.credentials.username, formModel.credentials.password)
             .then(() => this.loggedIn = true)
-            .catch(() => this.invalid = true);
+            .catch((e) => {
+              this.invalid = true;
+            });
   }
 }
