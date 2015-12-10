@@ -10,6 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var stringify = require('stringify');
 var history = require('connect-history-api-fallback');
 var watchify = require('watchify');
+var tsify = require('tsify');
 
 function handleError(error) {
   console.log("Error: " + error.message);
@@ -23,11 +24,13 @@ gulp.task('default', ['connect', 'data', 'bundle'], function() {
 gulp.task('bundle', ['style'], function() {
     var b = browserify({
         entries: ['./app/index.js'],
+        extensions: ['ts'],
         debug: true,
         cache: {},
         packageCache: {}
       })
-      .transform(babelify.configure({stage: 0}))
+      .plugin(tsify)
+      .transform(babelify.configure({stage: 0, extensions: ['.ts']}))
       .transform(stringify(['.html']));
 
       b = watchify(b);
