@@ -1,9 +1,28 @@
- <form #f="form" (submit)='login(f.value)' *ng-if="!loggedIn">
-   <div ng-control-group='credentials' #credentials="form">
-     Username <input type='text' ng-control='username'>
-     Password <input type='password' ng-control='password'>
-   </div>
-   <div *ng-if="invalid">Credentials are invalid</div>
-   <button type='submit'>Login</button>
- </form>
- <div *ng-if="loggedIn">You are logged in!</div>
+
+<div class="page-header">
+  <h1>Login</h1>
+</div>
+<div class="alert alert-danger alert-dismissible" role="alert" *ngIf="invalid">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span></button>
+  Login Failed!
+</div>
+<div *ngIf="loggedIn">You are logged in!</div>
+<form #f="ngForm" (submit)='login(f.value)' *ngIf="!loggedIn">
+  <div ngControlGroup='credentials' #credentials="ngForm">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Username</span>
+      <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" ngControl="username">
+    </div>
+    <br/>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Password</span>
+      <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" ngControl="password">
+    </div>
+  </div>
+  <hr/>
+  <div class="input-group">
+    <span class="input-group-btn">
+      <button type='submit' class="btn btn-default">Login</button>
+    </span>
+  </div>
+</form>

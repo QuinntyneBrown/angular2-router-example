@@ -1,25 +1,24 @@
-import 'babelify/polyfill';
-import 'reflect-metadata';
-import 'zone.js';
-import 'rxjs/operator/map';
-import './config/jquery';
-import 'bootstrap';
-import {bootstrap} from 'angular2/angular2';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {ROUTER_PROVIDERS} from 'angular2/router';
-import {FORM_PROVIDERS} from 'angular2/angular2';
-
-import {App} from './components/app/app';
-import {appInjector} from './helpers/app-injector';
-import {AUTH_PROVIDERS} from './services/auth/auth';
-import {USER_PROVIDERS} from './services/users/users';
-
-bootstrap(App, [
-	AUTH_PROVIDERS,
-	USER_PROVIDERS,
-	HTTP_PROVIDERS,
-	ROUTER_PROVIDERS,
-	FORM_PROVIDERS
-]).then((appRef) => {
-	appInjector(appRef.injector);
+require('babelify/polyfill');
+require('reflect-metadata');
+window['jQuery'] = window['$'] = require('jquery');
+require('zone.js');
+require('rxjs/add/operator/map.js');
+require('bootstrap');
+var angular2_1 = require('angular2/angular2');
+var http_1 = require('angular2/http');
+var router_1 = require('angular2/router');
+var angular2_2 = require('angular2/angular2');
+var app_1 = require('./components/app/app');
+var app_injector_1 = require('./helpers/app-injector');
+var auth_1 = require('./services/auth/auth');
+var users_1 = require('./services/users/users');
+angular2_1.bootstrap(app_1.App, [
+    auth_1.AUTH_PROVIDERS,
+    users_1.USER_PROVIDERS,
+    http_1.HTTP_PROVIDERS,
+    router_1.ROUTER_PROVIDERS,
+    angular2_2.FORM_PROVIDERS
+]).then(function (appRef) {
+    app_injector_1.appInjector(appRef.injector);
 });
+//# sourceMappingURL=index.js.map

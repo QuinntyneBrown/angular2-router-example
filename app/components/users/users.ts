@@ -9,15 +9,14 @@ let template = require('./users.html');
   template
 })
 export class Users {
-  static parameters = [UserService]
-  constructor(userService) {
-    this.userService = userService;
+  users: any;
+  constructor(public userService: UserService) {
   }
 
   routerOnActivate() {
     return new Promise((resolve) => {
       this.userService.getUsers()
-        .subscribe(data => {
+        .subscribe((data: any) => {
           data = data.json();
           data = data.results;
           data = data.map(item => item.user);
@@ -25,7 +24,7 @@ export class Users {
           this.users = data;
           resolve(true);
         }, () => {
-          reject(false);
+          resolve(false);
         });
     });
   }

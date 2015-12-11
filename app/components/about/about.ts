@@ -1,5 +1,5 @@
 import {Component} from 'angular2/angular2';
-import template from './about.html';
+let template = require('./about.html');
 
 @Component({
   selector: 'about',
