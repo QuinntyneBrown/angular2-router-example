@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/angular2';
-import template from './notfound.html';
+let template = require('./notfound.html');
 
 @Component({
   selector: 'notfound',

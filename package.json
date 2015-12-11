@@ -23,13 +23,8 @@
     "prestart": "npm install"
   },
   "dependencies": {
-    "angular2": "angular/angular#builds-js",
+    "angular2": "^2.0.0-alpha.52",
     "bootstrap": "^3.3.5",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.13",
-    "jquery": "^2.1.4",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-alpha.14",
-    "zone.js": "^0.5.8"
+    "jquery": "^2.1.4"
   }
 }

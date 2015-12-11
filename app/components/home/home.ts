@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/angular2';
-import template from './home.html';
+let template = require('./home.html');
 
 @Component({
   selector: 'home',

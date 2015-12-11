@@ -6,8 +6,7 @@ import {Auth} from '../../services/auth/auth';
   template: `Logged Out`
 })
 export class Logout {
-  static parameters = [Auth]
-  constructor(Auth) {
-    Auth.logout();
+  constructor(auth: Auth) {
+    auth.logout();
   }
 }

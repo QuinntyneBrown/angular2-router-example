@@ -1,6 +1,6 @@
 import {Component, View} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
-import template from './admin.html';
+let template = require('./admin.html');
 import {Dashboard} from '../dashboard/dashboard';
 import {NotFound} from '../notfound/notfound';
 import {isLoggedIn} from '../../helpers/is-logged-in';

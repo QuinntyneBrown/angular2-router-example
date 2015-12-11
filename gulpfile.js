@@ -18,25 +18,24 @@ function handleError(error) {
 }
 
 gulp.task('default', ['connect', 'data', 'bundle'], function() {
-  gulp.watch(['./app/**/*.js', './app/**/*.html', './app/views/**'], ['bundle']);
+  gulp.watch(['./app/**/*.ts', './app/**/*.html', './app/views/**'], ['bundle']);
 });
 
+var bundler = watchify(browserify({
+    entries: ['./app/index.ts'],
+    extensions: ['.ts'],
+    debug: false,
+    cache: {},
+    packageCache: {}
+  }))
+
+  bundler.plugin(tsify)
+  .transform(stringify(['.html']))
+  .transform(babelify.configure({stage: 0, extensions: ['.ts']}));
+
 gulp.task('bundle', ['style'], function() {
-    var b = browserify({
-        entries: ['./app/index.js'],
-        extensions: ['ts'],
-        debug: true,
-        cache: {},
-        packageCache: {}
-      })
-      .plugin(tsify)
-      .transform(babelify.configure({stage: 0, extensions: ['.ts']}))
-      .transform(stringify(['.html']));
-
-      b = watchify(b);
-
       function bundle() {
-        b.bundle()
+        return bundler.bundle()
          .on("error", handleError)
          .pipe(source('bundle.js'))
          .pipe(buffer())

@@ -9,7 +9,7 @@ import {NotFound} from '../notfound/notfound';
 import {Loading} from '../loading/loading';
 import {Auth} from '../../services/auth/auth';
 import {Users} from '../users/users';
-import template from './app.html';
+let template = require('./app.html');
 
 @Component({
   selector: 'app',
@@ -53,9 +53,6 @@ import template from './app.html';
   }
 ])
 export class App {
-  static parameters = [Router, Auth]
-  constructor(router, auth) {
-    this.router = router;
-    this.auth = auth;
+  constructor(public router: Router, public auth: Auth) {
   }
 }
