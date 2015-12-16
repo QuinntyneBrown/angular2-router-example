@@ -1,4 +1,4 @@
-import {Component} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {UserList} from '../user-list/user-list';
 import {UserService} from '../../services/users/users';
 let template = require('./users.html');

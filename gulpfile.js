@@ -11,13 +11,14 @@ var stringify = require('stringify');
 var history = require('connect-history-api-fallback');
 var watchify = require('watchify');
 var tsify = require('tsify');
+var concat = require('gulp-concat');
 
 function handleError(error) {
   console.log("Error: " + error.message);
   this.emit('end');
 }
 
-gulp.task('default', ['connect', 'data', 'bundle'], function() {
+gulp.task('default', ['connect', 'data', 'bundle', 'deps'], function() {
   gulp.watch(['./app/**/*.ts', './app/**/*.html', './app/views/**'], ['bundle']);
 });
 
@@ -58,10 +59,20 @@ gulp.task('data', function() {
 gulp.task('style', function() {
     return gulp.src([
             'assets/**/*',
-            'node_modules/bootstrap/dist/css/**',
+            'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'views/index.html'
           ])
         .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('deps', function() {
+    return gulp.src([
+        'node_modules/angular2/bundles/angular2-polyfills.js'
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(concat('dependencies.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('connect', function() {

@@ -1,4 +1,4 @@
-import {Component, View, Injector} from 'angular2/angular2';
+import {Component, View, Injector} from 'angular2/core';
 import {CanActivate} from 'angular2/router';
 let template = require('./dashboard.html');
 
