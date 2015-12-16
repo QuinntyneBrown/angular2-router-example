@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
 let template = require('./admin.html');
 import {Dashboard} from '../dashboard/dashboard';

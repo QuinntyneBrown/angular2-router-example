@@ -1,12 +1,11 @@
-import {Component, View, FormBuilder} from 'angular2/angular2';
-import {FORM_DIRECTIVES} from 'angular2/angular2';
-import {NgIf} from 'angular2/angular2';
+import {Component, View, } from 'angular2/core';
+import {FORM_DIRECTIVES, FormBuilder} from 'angular2/common';
 let template = require('./login.html');
 import {Auth} from '../../services/auth/auth';
 
 @Component({
   selector: 'login-form',
-  directives: [FORM_DIRECTIVES, NgIf],
+  directives: [FORM_DIRECTIVES],
   template
 })
 export class Login {

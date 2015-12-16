@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from 'angular2/angular2';
+import {Component, Input, OnInit} from 'angular2/core';
 let template = require('./user-list.html');
 
 @Component({
