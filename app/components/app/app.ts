@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {RouteConfig, Router} from 'angular2/router';
 import {Home} from '../home/home';
 import {About} from '../about/about';
 import {Login} from '../login/login';
@@ -14,7 +14,7 @@ let template = require('./app.html');
 @Component({
   selector: 'app',
   template,
-  directives: [ROUTER_DIRECTIVES, Loading]
+  directives: [Loading]
 })
 @RouteConfig([
   {

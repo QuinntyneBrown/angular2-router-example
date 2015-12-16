@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, CanActivate} from 'angular2/router';
+import {RouteConfig, CanActivate} from 'angular2/router';
 let template = require('./admin.html');
 import {Dashboard} from '../dashboard/dashboard';
 import {NotFound} from '../notfound/notfound';
@@ -7,8 +7,7 @@ import {isLoggedIn} from '../../helpers/is-logged-in';
 
 @Component({
   selector: 'admin',
-  template,
-  directives: [ROUTER_DIRECTIVES]
+  template
 })
 @RouteConfig([
   {
