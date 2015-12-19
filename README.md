@@ -19,4 +19,5 @@ An Angular 2 example app using the component router
 ## Notes
 
   Admin username/password: redcat594/window
+  
   Non-Admin username/password: lazymouse244/adam25
