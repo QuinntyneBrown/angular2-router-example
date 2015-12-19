@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 let template = require('./user-list.html');
 
 @Component({
@@ -6,5 +6,10 @@ let template = require('./user-list.html');
   template
 })
 export class UserList {
-  @Input('users') users;
+  @Input() users;
+  @Output() selected = new EventEmitter();
+
+  selectUser(user) {
+    this.selected.emit({user});
+  }
 }

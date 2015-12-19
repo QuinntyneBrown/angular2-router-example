@@ -1,15 +1,18 @@
 <nav class="navbar navbar-default">
   <ul class="nav navbar-nav">
-    <li><a [routerLink]="['/Home']">Home</a></li>
-    <li><a [routerLink]="['/About']">About</a></li>
-    <li><a *ngIf="!auth.user" [routerLink]="['/Login']">Login</a></li>
-    <li><a [routerLink]="['/Admin', 'Dashboard']">Dashboard</a></li>
-    <li><a href='/bad'>Invalid Link</a></li>
-    <li><a *ngIf="auth.user" [routerLink]="['/Logout']">Logout</a></li>
+    <li linkActive><a [routerLink]="['/Home']">Home</a></li>
+    <li linkActive><a [routerLink]="['/About']">About</a></li>
+    <li linkActive><a *ngIf="auth.user" [routerLink]="['/Profile', {id: auth.user.username}]">Profile</a></li>
+    <li linkActive><a [routerLink]="['/Admin']">Admin</a></li>
+    <li linkActive><a *ngIf="auth.isAdmin" [routerLink]="['/Admin', 'Users']">Users</a></li>
+    <li linkActive><a href='./bad'>Invalid Link</a></li>
+    <li linkActive><a *ngIf="!auth.user" [routerLink]="['/Login']">Login</a></li>
+    <li linkActive><a *ngIf="auth.user" [routerLink]="['/Logout', ['Modal']]">Logout</a></li>
   </ul>
 </nav>
 <main>
   <loading *ngIf="router.navigating"></loading>
 
   <router-outlet></router-outlet>
+  <router-outlet name="modal"></router-outlet>
 </main>

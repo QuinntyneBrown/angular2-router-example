@@ -1,3 +1,34 @@
-<ul>
-  <li *ngFor="#user of users; #i = index">{{ user.name.first }} {{ user.name.last }}</li>
-</ul>
+<div>
+  <h3>Users</h3>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>
+      First Name
+    </th>
+    <th>
+      Last Name
+    </th>
+    <th>
+      Phone Number
+    </th>
+    <th>
+      Action
+    </th>
+  </tr>
+  <tr *ngFor="#user of users; #i = index">
+    <td>
+      {{ user.name.first }}
+    </td>
+    <td>
+      {{ user.name.last }}
+    </td>
+    <td>
+      {{ user.phone }}
+    </td>
+    <td>
+      <a [routerLink]="['/Profile', {id: user.username}]">View</a>
+    </td>
+  </tr>
+</table>

@@ -1,27 +1,21 @@
 import {Component, View} from 'angular2/core';
-import {RouteConfig, CanActivate} from 'angular2/router';
-let template = require('./admin.html');
+import {RouteConfig, CanActivate, Route} from 'angular2/router';
+import {Users} from '../users/users';
 import {Dashboard} from '../dashboard/dashboard';
 import {NotFound} from '../notfound/notfound';
-import {isLoggedIn} from '../../helpers/is-logged-in';
+import {isAdmin} from '../../helpers/is-logged-in';
+let template = require('./admin.html');
 
 @Component({
   selector: 'admin',
   template
 })
 @RouteConfig([
-  {
-    path: '/dashboard',
-    component: Dashboard,
-    name: 'Dashboard'
-  },
-  {
-    path: '/**',
-    component: NotFound,
-    name: 'NotFound'
-  }
+  new Route({path: '/users/...', component: Users, name: 'Users'}),
+  new Route({path: '/dashboard', component: Dashboard, name: 'Dashboard', useAsDefault: true}),
+  new Route({path: '/**', component: NotFound, name: 'NotFound'})
 ])
-@CanActivate(() => isLoggedIn())
+@CanActivate(() => isAdmin('/admin/dashboard'))
 export class Admin {
 
 }

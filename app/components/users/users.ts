@@ -1,31 +1,16 @@
 import {Component} from 'angular2/core';
-import {UserList} from '../user-list/user-list';
-import {UserService} from '../../services/users/users';
+import {RouteConfig, Route} from 'angular2/router';
+
+import {Home} from './Home';
 let template = require('./users.html');
 
 @Component({
   selector: 'users',
-  directives: [UserList],
   template
 })
+@RouteConfig([
+  new Route({path: '/', component: Home, name: 'Home', useAsDefault: true})
+])
 export class Users {
-  users: any;
-  constructor(public userService: UserService) {
-  }
 
-  routerOnActivate() {
-    return new Promise((resolve) => {
-      this.userService.getUsers()
-        .subscribe((data: any) => {
-          data = data.json();
-          data = data.results;
-          data = data.map(item => item.user);
-
-          this.users = data;
-          resolve(true);
-        }, () => {
-          resolve(false);
-        });
-    });
-  }
 }
