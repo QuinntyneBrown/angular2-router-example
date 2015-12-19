@@ -33,6 +33,8 @@ export class Login {
 
               if (target) {
                 this.router.navigateByUrl(target);
+              } else {
+                this.router.navigate(['/Profile', {id: this.Auth.user.username}]);
               }
             })
             .catch((e) => {

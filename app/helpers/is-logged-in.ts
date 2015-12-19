@@ -1,20 +1,20 @@
 import {Injector} from 'angular2/core';
 import {appInjector} from './app-injector';
 import {Auth} from '../services/auth/auth';
-import {Router, RouteParams} from 'angular2/router';
+import {Router, RouteParams, ComponentInstruction} from 'angular2/router';
 
-export const isLoggedIn = () => {
+export const isLoggedIn = (next: ComponentInstruction, prev: ComponentInstruction) => {
 	let injector: Injector = appInjector();
 	let auth: Auth = injector.get(Auth);
 	let router: Router = injector.get(Router);
-	let params: RouteParams = injector.get(RouteParams);
+	let params:any = next.params;
 
   	return auth.check()
   				.then((result) => {
   					if (result) {
   						return true;
   					} else {
-  						router.navigate(['/Login', {target: params.get('target')}]);
+  						router.navigate(['/Login', {target: params.target || ''}]);
   						return false;
   					}
   				});
